@@ -1,0 +1,13 @@
+scrape_configs:
+  - job_name: 'dorado'
+    metrics_path: /
+    scrape_interval: 60s
+    scrape_timeout: 30s
+    file_sd_configs:
+      - files:
+        - /whatever/you/want.json
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_address
+      - target_label: __address__
+        replacement: dorado_exporter:9720

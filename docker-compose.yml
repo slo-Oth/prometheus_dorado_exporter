@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+    dorado_exporter:
+      restart: always
+      networks:
+        default:
+          ipv4_address: 10.103.0.10
+      expose:
+        - 9720
+      ports:
+        - 9720:9720
+      build:
+        context: ./dorado_exporter
+        dockerfile: ./Dockerfile
+
+  networks:
+  default:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet:  10.103.0.1/24
