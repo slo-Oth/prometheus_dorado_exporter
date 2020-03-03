@@ -71,14 +71,14 @@ def get_disk_data(metrics, connection, api_host, api_port):
                             }
         metrics.append(metric_dict)
         metric_dict = {
-                            "key": "huawei_storage_disk_remainlife",
+                            "key": "huawei_storage_remainlife",
                             "value": entry["REMAINLIFE"],
                             "customlabels": [],
                             "labels": labels
                             }
         metrics.append(metric_dict)
         metric_dict = {
-                            "key": "huawei_storage_disk_usage",
+                            "key": "huawei_storage_usage",
                             "value": entry["CAPACITYUSAGE"],
                             "customlabels": [],
                             "labels": labels
@@ -167,7 +167,7 @@ def get_bbu_data(metrics, connection, api_host, api_port):
                             }
         metrics.append(metric_dict)
         metric_dict = {
-                            "key": "huawei_storage_bbu_remainlife",
+                            "key": "huawei_storage_remainlife",
                             "value": entry["REMAINLIFEDAYS"],
                             "customlabels": [],
                             "labels": labels
@@ -258,7 +258,6 @@ def get_controller_data(metrics, connection, api_host, api_port):
         metrics.append(metric_dict)
         stats_uid = "{0}:{1}".format(entry["TYPE"], entry["ID"])
         perfmetrics_list = [
-                            # Commented elements mean there is no such metric available for this type of instance
                             "queue_length",
                             "read_iops",
                             "read_mbytes",
@@ -382,7 +381,6 @@ def get_eth_port_data(metrics, connection, api_host, api_port):
             # Here we have management and host ports. Management ports don't have metrics, so we don't query them for not "0" port type
             stats_uid = "{0}:{1}".format(entry["TYPE"], entry["ID"])
             perfmetrics_list = [
-                                # Commented elements mean there is no such metric available for this type of instance
                                 "usage",
                                 "queue_length",
                                 "read_iops",
@@ -467,7 +465,6 @@ def get_sas_port_data(metrics, connection, api_host, api_port):
         metrics.append(metric_dict)
         stats_uid = "{0}:{1}".format(entry["TYPE"], entry["ID"])
         perfmetrics_list = [
-                            # Commented elements mean there is no such metric available for this type of instance
                             # "usage",
                             # "queue_length",
                             "read_iops",
@@ -565,14 +562,14 @@ def get_lun_data(metrics, connection, api_host, api_port):
                             }
         metrics.append(metric_dict)
         metric_dict = {
-                            "key": "huawei_storage_lun_capacity_total",
+                            "key": "huawei_storage_capacity_total",
                             "value": entry["CAPACITY"],
                             "customlabels": [],
                             "labels": labels
                             }
         metrics.append(metric_dict)
         metric_dict = {
-                            "key": "huawei_storage_lun_capacity_allocated",
+                            "key": "huawei_storage_capacity_allocated",
                             "value": entry["ALLOCCAPACITY"],
                             "customlabels": [],
                             "labels": labels
@@ -581,7 +578,6 @@ def get_lun_data(metrics, connection, api_host, api_port):
 
         stats_uid = "{0}:{1}".format(entry["TYPE"], entry["ID"])
         perfmetrics_list = [
-                            # Commented elements mean there is no such metric available for this type of instance
                             # "usage",
                             "queue_length",
                             "read_iops",
@@ -651,21 +647,21 @@ def get_disk_pool_data(metrics, connection, api_host, api_port):
                             }
         metrics.append(metric_dict)
         metric_dict = {
-                            "key": "huawei_storage_diskpool_capacity_total",
+                            "key": "huawei_storage_capacity_total",
                             "value": entry["TOTALCAPACITY"],
                             "customlabels": [],
                             "labels": labels
                             }
         metrics.append(metric_dict)
         metric_dict = {
-                            "key": "huawei_storage_diskpool_capacity_allocated",
+                            "key": "huawei_storage_capacity_allocated",
                             "value": entry["USEDCAPACITY"],
                             "customlabels": [],
                             "labels": labels
                             }
         metrics.append(metric_dict)
         metric_dict = {
-                            "key": "huawei_storage_diskpool_remainlife",
+                            "key": "huawei_storage_remainlife",
                             "value": entry["remainLife"],
                             "customlabels": [],
                             "labels": labels
@@ -674,7 +670,6 @@ def get_disk_pool_data(metrics, connection, api_host, api_port):
 
         stats_uid = "{0}:{1}".format(entry["TYPE"], entry["ID"])
         perfmetrics_list = [
-                            # Commented elements mean there is no such metric available for this type of instance
                             # "usage",
                             "queue_length",
                             "read_iops",
@@ -744,14 +739,14 @@ def get_storage_pool_data(metrics, connection, api_host, api_port):
                             }
         metrics.append(metric_dict)
         metric_dict = {
-                            "key": "huawei_storage_storagepool_capacity_total",
+                            "key": "huawei_storage_capacity_total",
                             "value": entry["USERTOTALCAPACITY"],
                             "customlabels": [],
                             "labels": labels
                             }
         metrics.append(metric_dict)
         metric_dict = {
-                            "key": "huawei_storage_storagepool_capacity_allocated",
+                            "key": "huawei_storage_capacity_allocated",
                             "value": entry["USERWRITEALLOCCAPACITY"],
                             "customlabels": [],
                             "labels": labels
@@ -759,7 +754,6 @@ def get_storage_pool_data(metrics, connection, api_host, api_port):
         metrics.append(metric_dict)
         stats_uid = "{0}:{1}".format(entry["TYPE"], entry["ID"])
         perfmetrics_list = [
-                            # Commented elements mean there is no such metric available for this type of instance
                             # "usage",
                             "queue_length",
                             "read_iops",
