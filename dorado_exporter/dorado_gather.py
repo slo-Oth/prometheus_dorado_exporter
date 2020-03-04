@@ -339,8 +339,8 @@ def get_eth_port_data(metrics, connection, api_host, api_port):
                     ("ipv4", entry["IPV4ADDR"]),
                     ("v4mask", entry["IPV4MASK"]),
                     ("location", entry["LOCATION"]),
-                    ("typeid", entry["LOGICTYPE"]),
-                    ("type", valuemap["eth_port_types"][entry["LOGICTYPE"]]),
+                    ("port_type_id", entry["LOGICTYPE"]),
+                    ("port_type_text", valuemap["eth_port_types"][entry["LOGICTYPE"]]),
                     ]
         metric_dict = {
                             "key": "huawei_storage_component_health_status",
